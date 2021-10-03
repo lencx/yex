@@ -44,7 +44,7 @@ for (const { globals, name, external, submodules, iife } of packages) {
       },
     ];
 
-    if (iife !== false) {
+    if (iife !== false && fn === 'index') {
       output.push(
         {
           file: `packages/${name}/dist/${fn}.iife.js`,

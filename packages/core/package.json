@@ -1,0 +1,34 @@
+{
+  "name": "@yex/core",
+  "version": "0.0.1",
+  "author": "lencx <https://github.com/lencx>",
+  "description": "Collection of essential Utilities",
+  "license": "MIT",
+  "main": "./index.cjs",
+  "types": "./index.d.ts",
+  "module": "./index.mjs",
+  "unpkg": "./index.iife.min.js",
+  "jsdelivr": "./index.iife.min.js",
+  "sideEffects": false,
+  "keywords": [
+    "yex",
+    "utils",
+    "is",
+    "browser"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yexjs/yex.git"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./*": "./*"
+  },
+  "bugs": {
+    "url": "https://github.com/yexjs/yex/issues"
+  },
+  "homepage": "https://github.com/yexjs/yex#readme"
+}
