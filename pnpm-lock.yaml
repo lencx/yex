@@ -6,12 +6,18 @@ importers:
     specifiers:
       '@types/fs-extra': ^9.0.13
       '@types/jest': ^27.0.2
+      '@types/lodash.isequal': ^4.5.5
+      '@types/minimist': ^1.2.2
+      chalk: ^4.1.2
+      consola: ^2.15.3
       cross-env: ^7.0.3
       esbuild-register: ^3.0.0
       esno: ^0.10.0
       fast-glob: ^3.2.7
       fs-extra: ^10.0.0
       jest: ^27.2.4
+      lodash.isequal: ^4.5.0
+      minimist: ^1.2.5
       pnpm: ^6.15.1
       rimraf: ^3.0.2
       rollup: ^2.57.0
@@ -24,12 +30,18 @@ importers:
     devDependencies:
       '@types/fs-extra': 9.0.13
       '@types/jest': 27.0.2
+      '@types/lodash.isequal': 4.5.5
+      '@types/minimist': 1.2.2
+      chalk: 4.1.2
+      consola: 2.15.3
       cross-env: 7.0.3
       esbuild-register: 3.0.0
       esno: 0.10.0
       fast-glob: 3.2.7
       fs-extra: 10.0.0
       jest: 27.2.4
+      lodash.isequal: 4.5.0
+      minimist: 1.2.5
       pnpm: 6.15.1
       rimraf: 3.0.2
       rollup: 2.57.0
@@ -824,6 +836,20 @@ packages:
       pretty-format: 27.2.4
     dev: true
 
+  /@types/lodash.isequal/4.5.5:
+    resolution: {integrity: sha512-4IKbinG7MGP131wRfceK6W4E/Qt3qssEFLF30LnJbjYiSfHGGRU/Io8YxXrZX109ir+iDETC8hw8QsDijukUVg==}
+    dependencies:
+      '@types/lodash': 4.14.175
+    dev: true
+
+  /@types/lodash/4.14.175:
+    resolution: {integrity: sha512-XmdEOrKQ8a1Y/yxQFOMbC47G/V2VDO1GvMRnl4O75M4GW/abC5tnfzadQYkqEveqRM1dEJGFFegfPNA2vvx2iw==}
+    dev: true
+
+  /@types/minimist/1.2.2:
+    resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
+    dev: true
+
   /@types/node/16.10.1:
     resolution: {integrity: sha512-4/Z9DMPKFexZj/Gn3LylFgamNKHm4K3QDi0gz9B26Uk0c8izYf97B5fxfpspMNkWlFupblKM/nV8+NA9Ffvr+w==}
     dev: true
@@ -1263,6 +1289,10 @@ packages:
 
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    dev: true
+
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
 
   /convert-source-map/1.8.0:
@@ -2545,6 +2575,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       p-locate: 4.1.0
+    dev: true
+
+  /lodash.isequal/4.5.0:
+    resolution: {integrity: sha1-QVxEePK8wwEgwizhDtMib30+GOA=}
     dev: true
 
   /lodash/4.17.21:

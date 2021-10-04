@@ -1,25 +1,15 @@
 {
-  "name": "@yex/core",
-  "version": "0.0.1",
+  "name": "@yex/shared",
+  "version": "0.1.0-alpha.0",
   "author": "lencx <https://github.com/lencx>",
   "description": "Collection of essential Utilities",
   "license": "MIT",
+  "sideEffects": false,
   "main": "./index.cjs",
   "types": "./index.d.ts",
   "module": "./index.mjs",
   "unpkg": "./index.iife.min.js",
   "jsdelivr": "./index.iife.min.js",
-  "sideEffects": false,
-  "keywords": [
-    "yex",
-    "utils",
-    "is",
-    "browser"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yexjs/yex.git"
-  },
   "exports": {
     ".": {
       "import": "./index.mjs",
@@ -27,8 +17,22 @@
     },
     "./*": "./*"
   },
+  "keywords": [
+    "yex",
+    "utils",
+    "is",
+    "browser"
+  ],
   "bugs": {
     "url": "https://github.com/yexjs/yex/issues"
   },
-  "homepage": "https://github.com/yexjs/yex#readme"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yexjs/yex.git",
+    "directory": "packages/shared"
+  },
+  "homepage": "https://github.com/vueuse/vueuse/tree/main/packages/shared#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
 }

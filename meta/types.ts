@@ -1,6 +1,7 @@
 export interface PackageManifest {
   name: string;
   display: string;
+  version: string;
   addon?: boolean;
   author?: string;
   description?: string;
@@ -10,4 +11,5 @@ export interface PackageManifest {
   deprecated?: boolean;
   submodules?: boolean;
   iife?: boolean;
+  keywords?: string[];
 }
