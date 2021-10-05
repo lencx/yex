@@ -5,8 +5,11 @@ import NotFound from './NotFound.vue'
 import './styles/vars.css'
 import './styles/layout.css'
 import './styles/code.css'
+import './styles/prism-base.css'
+import './styles/prism-marker.css';
 import './styles/custom-blocks.css'
 import './styles/sidebar-links.css'
+import 'windi.css'
 
 const theme: Theme = {
   Layout,

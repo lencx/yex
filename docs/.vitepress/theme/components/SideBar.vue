@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import NavLinks from './NavLinks.vue'
-import SideBarLinks from './SideBarLinks.vue'
-
-defineProps<{ open: boolean }>()
-</script>
-
 <template>
   <aside class="sidebar" :class="{ open }">
     <NavLinks class="nav" />
@@ -17,6 +10,15 @@ defineProps<{ open: boolean }>()
   </aside>
 </template>
 
+<script setup lang="ts">
+import NavLinks from './NavLinks.vue'
+import SideBarLinks from './SideBarLinks.vue'
+
+defineProps({
+  open: { type: Boolean, required: true },
+})
+</script>
+
 <style scoped>
 .sidebar {
   position: fixed;
@@ -25,7 +27,7 @@ defineProps<{ open: boolean }>()
   left: 0;
   z-index: var(--z-index-sidebar);
   border-right: 1px solid var(--c-divider);
-  width: 16.4rem;
+  width: var(--sidebar-width);
   background-color: var(--c-bg);
   overflow-y: auto;
   transform: translateX(-100%);
@@ -35,12 +37,6 @@ defineProps<{ open: boolean }>()
 @media (min-width: 720px) {
   .sidebar {
     transform: translateX(0);
-  }
-}
-
-@media (min-width: 960px) {
-  .sidebar {
-    width: 20rem;
   }
 }
 

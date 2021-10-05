@@ -3,7 +3,7 @@ import type { UserConfig } from 'vitepress';
 import head from './head';
 import sidebar from './sidebar';
 
-export const configs: UserConfig = {
+export const config: UserConfig = {
   title: 'YEX',
   description: 'Components library',
   lang: 'en-US',

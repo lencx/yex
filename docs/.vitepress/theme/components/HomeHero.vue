@@ -18,10 +18,10 @@ const tagline = computed(
 </script>
 
 <template>
-  <header v-if="showHero" class="home-hero">
+  <header v-if="showHero" class="home-hero pt-25 pb-10 px-5">
     <figure v-if="frontmatter.heroImage" class="figure">
       <img
-        class="image"
+        class="image herologo"
         :src="withBase(frontmatter.heroImage)"
         :alt="frontmatter.heroAlt"
       />
@@ -76,6 +76,13 @@ const tagline = computed(
   width: auto;
   max-width: 100%;
   max-height: 280px;
+  border: solid 3px transparent;
+  border-radius: 50%;
+}
+
+.dark .herologo {
+  border: solid 3px #666;
+  border-radius: 50%;
 }
 
 .title {
@@ -134,8 +141,8 @@ const tagline = computed(
   font-size: 1rem;
   font-weight: 500;
   color: var(--c-bg);
-  background-color: var(--c-brand-dark);
-  /* border: 2px solid var(--c-brand); */
+  border: 2px solid var(--c-brand);
+  background-color: var(--c-brand);
   transition: background-color 0.1s ease;
 }
 
@@ -147,7 +154,7 @@ const tagline = computed(
 .action :deep(.item:hover) {
   text-decoration: none;
   color: var(--c-bg);
-  background-color: var(--c-brand-dark-light);
+  background-color: var(--c-brand-light);
 }
 
 @media (min-width: 420px) {

@@ -33,5 +33,10 @@ const { site, theme, localePath } = useData()
 .logo {
   width: 100%;
   vertical-align: middle;
+  border-radius: 50%;
+  border: solid 2px #f8f8f8;
+}
+.dark .logo {
+  border: solid 2px #666;
 }
 </style>

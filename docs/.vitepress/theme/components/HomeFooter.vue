@@ -7,7 +7,7 @@ const { frontmatter } = useData()
 <template>
   <footer v-if="frontmatter.footer" class="footer">
     <div class="container">
-      <p class="text">{{ frontmatter.footer }}</p>
+      <p class="text" v-html="frontmatter.footer" />
     </div>
   </footer>
 </template>
@@ -45,6 +45,6 @@ const { frontmatter } = useData()
   text-align: center;
   line-height: 1.4;
   font-size: 0.9rem;
-  color: var(--c-text-light);
+  color: #989898;
 }
 </style>

@@ -13,9 +13,9 @@
     "clean": "rimraf dist types packages/*/dist",
     "update": "esno scripts/update.ts",
     "test": "jest",
-    "docs:dev": "vitepress dev packages",
-    "docs:build": "vitepress build packages",
-    "docs:serve": "vitepress serve packages"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {
     "@iconify-json/ri": "^1.0.1",
@@ -35,6 +35,8 @@
     "lodash.isequal": "^4.5.0",
     "minimist": "^1.2.5",
     "pnpm": "^6.15.1",
+    "postcss": "^8.3.9",
+    "postcss-nested": "^5.0.6",
     "rimraf": "^3.0.2",
     "rollup": "^2.57.0",
     "rollup-plugin-dts": "^4.0.0",
@@ -44,6 +46,7 @@
     "unplugin-icons": "^0.12.7",
     "unplugin-vue-components": "^0.15.6",
     "vite": "^2.6.2",
+    "vite-plugin-windicss": "^1.4.9",
     "vitepress": "^0.19.2"
   }
 }
