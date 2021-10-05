@@ -14,10 +14,10 @@ module.exports = {
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover' }],
     ['meta', { name: 'author', content: 'lencx' }],
     ['meta', { property: 'og:title', content: 'Yex' }],
-    ['meta', { property: 'og:image', content: 'https://yexjs.github.io/yex/logo.png' }],
+    ['meta', { property: 'og:image', content: 'https://yex.nofwl.com/logo.png' }],
     ['meta', { property: 'og:description', content: '✌️ Yex - components library' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: 'https://yexjs.github.io/yex/logo.png' }],
+    ['meta', { name: 'twitter:image', content: 'https://yex.nofwl.com/logo.png' }],
   ],
 
   themeConfig: {
