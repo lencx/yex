@@ -37,7 +37,7 @@ export async function updatePkgJSON(pkgName: string, type: 'build' | 'cli' = 'bu
           chalk.magenta`[${pkgKey}]`,
           chalk.yellow(pkgJson[pkgKey]),
           chalk.grey`~>`,
-          chalk.green(pkgInfo[pkgKey])
+          chalk.green(pkgInfo[pkgKey]),
         );
         pkgJson[pkgKey] = pkgInfo[pkgKey];
       }
