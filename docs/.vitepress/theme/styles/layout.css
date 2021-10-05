@@ -32,6 +32,8 @@ html {
   line-height: 1.4;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  font-variant-ligatures: contextual;
+  font-feature-settings: "calt";
 }
 
 body {

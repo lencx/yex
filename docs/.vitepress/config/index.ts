@@ -19,4 +19,7 @@ export const config: UserConfig = {
     lastUpdated: 'Last Updated',
     sidebar,
   },
+  markdown: {
+    lineNumbers: true
+  },
 };

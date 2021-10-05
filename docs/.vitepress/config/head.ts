@@ -3,6 +3,7 @@ import type { HeadConfig } from 'vitepress'
 export default [
   ['link', { rel: 'icon', href: '/logo.svg' }],
   // https://stackoverflow.com/questions/49568333/pwa-icons-are-not-used-in-ios-11-3
+  ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css' }],
   ['link', { rel: 'apple-touch-icon', size: '180x180', href: '/logo.png' }],
   ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
   ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],

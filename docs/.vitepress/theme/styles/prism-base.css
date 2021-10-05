@@ -47,7 +47,7 @@
   /* Font */
   --prism-font-size: 1em;
   --prism-line-height: 1.5em;
-  --prism-font-family: monospace;
+  /* --prism-font-family: monospace; */
   --prism-inline-font-size: var(--prism-font-size);
   --prism-block-font-size: var(--prism-font-size);
 
@@ -55,7 +55,7 @@
   --prism-tab-size: 2;
 
   --prism-block-padding-x: 1em;
-  --prism-block-padding-y: 1em;
+  --prism-block-padding-y: 0.5em;
   --prism-block-margin-x: 0;
   --prism-block-margin-y: 0.5em;
   --prism-block-radius: 0.3em;
@@ -83,6 +83,28 @@ code[class*='language-'] {
   -ms-hyphens: none;
   hyphens: none;
   color: var(--prism-foreground) !important;
+}
+
+/* Line number */
+div[class*='language-'].line-numbers-mode,
+pre[class*='language-'].line-numbers-mode,
+code[class*='language-'].line-numbers-mode {
+  padding-left: 3.5rem;
+}
+
+div[class*='language-'].line-numbers-mode .line-numbers-wrapper,
+pre[class*='language-'].line-numbers-mode .line-numbers-wrapper,
+code[class*='language-'].line-numbers-mode .line-numbers-wrapper {
+  user-select: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: 100%;
+  padding: calc(2 * var(--prism-block-margin-y)) 0.5rem;
+  text-align: right;
+  color: var(--code-line-text);
+  border-right: solid 1px var(--code-line-border);
 }
 
 /* Code blocks */

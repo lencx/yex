@@ -41,7 +41,7 @@
 }
 
 [class~='language-js']:before,
-[class~='language-typescript']:before {
+[class~='language-javascript']:before {
   content: 'js';
 }
 
@@ -99,4 +99,12 @@
 
 [class~='language-dockerfile']:before {
   content: 'dockerfile';
+}
+
+[class~='language-jsx']:before {
+  content: 'jsx';
+}
+
+[class~='language-tsx']:before {
+  content: 'tsx';
 }
