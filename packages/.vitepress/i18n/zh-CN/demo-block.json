@@ -1,0 +1,8 @@
+{
+  "view-source": "查看源文件",
+  "edit-on-github": "在 GitHub 上编辑",
+  "edit-in-codepen": "在 Codepen.io 上编辑",
+  "copy-code": "复制",
+  "copy-success": "已复制",
+  "copy-error": "浏览器不支持复制"
+}

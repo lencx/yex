@@ -92,6 +92,6 @@ defineEmits(['toggle'])
 }
 
 .nav-icons .item {
-  padding-left: 12px;
+  padding: 0 0.2rem;
 }
 </style>

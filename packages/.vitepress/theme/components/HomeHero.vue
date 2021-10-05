@@ -134,8 +134,8 @@ const tagline = computed(
   font-size: 1rem;
   font-weight: 500;
   color: var(--c-bg);
-  background-color: var(--c-brand);
-  border: 2px solid var(--c-brand);
+  background-color: var(--c-brand-dark);
+  /* border: 2px solid var(--c-brand); */
   transition: background-color 0.1s ease;
 }
 
@@ -147,7 +147,7 @@ const tagline = computed(
 .action :deep(.item:hover) {
   text-decoration: none;
   color: var(--c-bg);
-  background-color: var(--c-brand-light);
+  background-color: var(--c-brand-dark-light);
 }
 
 @media (min-width: 420px) {
