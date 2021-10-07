@@ -5,15 +5,15 @@
   "description": "Collection of essential Utilities",
   "license": "MIT",
   "sideEffects": false,
-  "main": "./index.cjs",
-  "types": "./index.d.ts",
-  "module": "./index.mjs",
-  "unpkg": "./index.iife.min.js",
-  "jsdelivr": "./index.iife.min.js",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "module": "es/index.js",
+  "unpkg": "dist/index.iife.min.js",
+  "jsdelivr": "dist/index.iife.min.js",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.cjs"
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
     },
     "./*": "./*"
   },

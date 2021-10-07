@@ -1,11 +1,123 @@
 import fg from 'fast-glob';
 import { resolve } from 'path';
 import dts from 'rollup-plugin-dts';
-import type { OutputOptions, RollupOptions } from 'rollup';
+import scss from 'rollup-plugin-scss';
+import type { RollupOptions } from 'rollup';
 import esbuild, { Options as ESBuildOptions } from 'rollup-plugin-esbuild';
-import { packages } from '../meta/packages';
 
-const esbuildMinifer = (options: ESBuildOptions) => {
+import { packages } from '../meta/packages';
+import { PackageManifest } from '../meta/types';
+
+const configs: RollupOptions[] = [];
+for (const _package of packages) {
+  const { globals, external, name, submodules, iife } = _package;
+
+  const iifeGlobals = {
+    ...(globals || {}),
+  };
+
+  const iifeName = 'Yex';
+  const functionNames = [];
+
+  if (submodules) {
+    functionNames.push(...fg.sync('**/index.ts', { cwd: resolve(`packages/${name}/src`) }).map(i => i.split('/')[0]));
+  }
+
+  for (const fn of functionNames) {
+    const input = fn === 'index.ts' ? `packages/${name}/src/index.ts` : `packages/${name}/src/${fn}/index.ts`;
+    const _output = fn === 'index.ts' ? `index` : `${fn}/index`;
+
+    if (iife !== false) {
+      // build dist
+      configs.push({
+        input,
+        output: [
+          {
+            file: `packages/${name}/dist/index.iife.js`,
+            format: 'iife',
+            name: iifeName,
+            extend: true,
+            globals: iifeGlobals,
+          },
+          {
+            file: `packages/${name}/dist/index.iife.min.js`,
+            format: 'iife',
+            name: iifeName,
+            extend: true,
+            globals: iifeGlobals,
+            plugins: [
+              esbuildMinifer({
+                minify: true,
+              }),
+            ],
+          },
+        ],
+        plugins: [
+          esbuild(),
+          scss({
+            output: `packages/${name}/dist/index.min.css`,
+            // @ts-ignore
+            outputStyle: 'compressed',
+          }),
+        ],
+      });
+    }
+
+    // build lib
+    configs.push({
+      input,
+      output: {
+        file: `packages/${name}/lib/${_output}.js`,
+        format: 'cjs',
+      },
+      plugins: [
+        esbuild(),
+        scss({
+          output: `packages/${name}/lib/${_output}.css`,
+          // @ts-ignore
+          outputStyle: 'compressed',
+        }),
+      ],
+    });
+
+    // build es
+    configs.push({
+      input,
+      output: {
+        file: `packages/${name}/es/${_output}.js`,
+        format: 'es',
+      },
+      plugins: [
+        esbuild(),
+        scss({
+          output: `packages/${name}/es/${_output}.css`,
+          // @ts-ignore
+          outputStyle: 'compressed',
+        }),
+      ],
+    });
+
+    // build dts
+    configs.push({
+      input,
+      output: {
+        file: `packages/${name}/types/${_output}.d.ts`,
+        format: 'es',
+      },
+      plugins: [
+        dts(),
+      ],
+      external: [
+        /\.scss$/,
+        ...(external || []),
+      ],
+    });
+  }
+}
+
+export default configs;
+
+function esbuildMinifer(options: ESBuildOptions) {
   const { renderChunk } = esbuild(options);
 
   return {
@@ -14,86 +126,19 @@ const esbuildMinifer = (options: ESBuildOptions) => {
   };
 };
 
-const configs: RollupOptions[] = [];
-
-for (const { globals, name, external, submodules, iife } of packages) {
-  const iifeGlobals = {
-    '@yex/core': 'Yex',
-    ...(globals || {}),
-  };
-
-
-  const iifeName = 'Yex';
-  const functionNames = ['index'];
-
-  if (submodules) {
-    functionNames.push(...fg.sync('*/index.ts', { cwd: resolve(`packages/${name}`) }).map(i => i.split('/')[0]));
-  }
-
-  for (const fn of functionNames) {
-    const input = fn === 'index' ? `packages/${name}/index.ts` : `packages/${name}/${fn}/index.ts`;
-
-    const output: OutputOptions[] = [
-      {
-        file: `packages/${name}/dist/${fn}.cjs`,
-        format: 'cjs',
-      },
-      {
-        file: `packages/${name}/dist/${fn}.mjs`,
-        format: 'es',
-      },
-    ];
-
-    if (iife !== false && fn === 'index') {
-      output.push(
-        {
-          file: `packages/${name}/dist/${fn}.iife.js`,
-          format: 'iife',
-          name: iifeName,
-          extend: true,
-          globals: iifeGlobals,
-          plugins: [],
-        },
-        {
-          file: `packages/${name}/dist/${fn}.iife.min.js`,
-          format: 'iife',
-          name: iifeName,
-          extend: true,
-          globals: iifeGlobals,
-          plugins: [
-            esbuildMinifer({
-              minify: true,
-            }),
-          ],
-        },
-      );
-    }
-
-    configs.push({
-      input,
-      output,
-      plugins: [
-        esbuild(),
-      ],
-      external: [
-        ...(external || []),
-      ],
-    });
-
-    configs.push({
-      input,
-      output: {
-        file: `packages/${name}/dist/${fn}.d.ts`,
-        format: 'es',
-      },
-      plugins: [
-        dts(),
-      ],
-      external: [
-        ...(external || []),
-      ],
-    });
+function buildDST(pkg: PackageManifest, input: string, output: string): RollupOptions {
+  return {
+    input,
+    output: {
+      file: `packages/${pkg.name}/types/${output}.d.ts`,
+      format: 'es',
+    },
+    plugins: [
+      dts(),
+    ],
+    external: [
+      /\.scss$/,
+      ...(pkg.external || []),
+    ],
   }
 }
-
-export default configs;

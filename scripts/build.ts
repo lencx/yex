@@ -2,10 +2,13 @@ import path from 'path';
 import fs from 'fs-extra';
 import assert from 'assert';
 import consola from 'consola';
-import { execSync as exec } from 'child_process';
+import { execSync, exec } from 'child_process';
+import ora from 'ora';
 
 import { updatePkgJSON } from './update';
 import { packages } from '../meta/packages';
+
+const spinner = ora('building @yex/monorepo');
 
 const rootDir = path.resolve(__dirname, '..');
 
@@ -50,14 +53,20 @@ async function buildMetaFiles() {
   }
 }
 
+const buildType = (type: string) =>
+  `cross-env NODE_OPTIONS="--max-old-space-size=6144" NODE_BUILD_TYPE=${type} rollup -c`;
+
 export async function build() {
   consola.info('Clean up');
-  exec('pnpm run clean', { stdio: 'inherit' });
+  execSync('pnpm run clean', { stdio: 'inherit' });
 
-  consola.info('Rollup');
-  exec('pnpm run build:rollup', { stdio: 'inherit' });
-
-  await buildMetaFiles();
+  consola.info('Rollup\n');
+  spinner.start();
+  exec('pnpm run build:rollup', async (error) => {
+    if (error) return console.error(`exec error: ${error}`);
+    spinner.stop().clear();
+    await buildMetaFiles();
+  });
 }
 
 async function cli() {

@@ -1,6 +1,8 @@
 import { Theme } from 'vitepress'
+
 import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'
+import DemoBlock from './components/demo/DemoBlock.vue'
 
 import './styles/vars.css'
 import './styles/layout.css'
@@ -13,7 +15,10 @@ import 'windi.css'
 
 const theme: Theme = {
   Layout,
-  NotFound
+  NotFound,
+  enhanceApp({ app }) {
+    app.component('Demo', DemoBlock)
+  }
 }
 
 export default theme

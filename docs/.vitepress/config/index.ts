@@ -2,6 +2,7 @@ import type { UserConfig } from 'vitepress';
 
 import head from './head';
 import sidebar from './sidebar';
+import { mdPlugin } from './plugins';
 
 export const config: UserConfig = {
   title: 'YEX',
@@ -20,6 +21,7 @@ export const config: UserConfig = {
     sidebar,
   },
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    config: (md) => mdPlugin(md),
   },
 };

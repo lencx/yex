@@ -2,6 +2,10 @@
 
 > TODO
 
+:::demo Validating css color names
+vue/scroll-progress-bar
+:::
+
 ```js
 /**
  * isColor

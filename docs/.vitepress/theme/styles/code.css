@@ -3,7 +3,6 @@
 :root {
   --prism-font-family: var(--font-family-mono);
   --prism-font-size: 0.85rem;
-  --prism-marker-opacity: 0;
 }
 
 html:not(.dark) {
@@ -66,6 +65,10 @@ html.dark {
   background: var(--prism-inline-background);
   padding: 1px 6px;
   border-radius: 3px;
+}
+
+.token[class*='language-']::before {
+  display: none;
 }
 
 a > code {

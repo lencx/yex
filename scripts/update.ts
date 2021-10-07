@@ -29,7 +29,6 @@ export async function updatePkgJSON(pkgName: string, type: 'build' | 'cli' = 'bu
 
   const pkgJson = await fs.readJSON(pkgJsonPath);
 
-  console.log();
   for (const pkgKey of Object.keys(pkgJson)) {
     if (pkgKey in (pkgInfo as Object) && !['name'].includes(pkgKey)) {
       if (!isEqual(pkgJson[pkgKey], pkgInfo[pkgKey])) {

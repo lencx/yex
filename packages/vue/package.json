@@ -1,0 +1,46 @@
+{
+  "name": "@yex/vue",
+  "version": "0.1.0-alpha.0",
+  "author": "lencx <https://github.com/lencx>",
+  "description": "Components Library",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "module": "es/index.js",
+  "unpkg": "dist/index.iife.min.js",
+  "jsdelivr": "dist/index.iife.min.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./*": "./*"
+  },
+  "keywords": [
+    "yex",
+    "vue3",
+    "components"
+  ],
+  "bugs": {
+    "url": "https://github.com/yexjs/yex/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yexjs/yex.git",
+    "directory": "packages/vue"
+  },
+  "homepage": "https://github.com/vueuse/vueuse/tree/main/packages/vue#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "@yex/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "vue": "^3.2.19"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.19"
+  }
+}

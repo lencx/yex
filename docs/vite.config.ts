@@ -1,4 +1,3 @@
-// import { promises as fs } from 'fs'
 import { UserConfig } from 'vite';
 import Icons from 'unplugin-icons/vite';
 import WindiCSS from 'vite-plugin-windicss';

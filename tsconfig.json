@@ -9,11 +9,7 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "declaration": true,
-    "declarationDir": "./types",
     "resolveJsonModule": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {},
     "jsx": "preserve",
     "skipLibCheck": true,
     "noUnusedLocals": true,
@@ -28,6 +24,7 @@
     "**/**/*.md",
     "**/dist",
     "packages/.test",
-    "packages/_docs"
+    "packages/_docs",
+    "docs"
   ]
 }

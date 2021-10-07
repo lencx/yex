@@ -2,8 +2,8 @@
 
 [class*='language-']:before {
   position: absolute;
-  top: .4em;
-  right: 0.8em;
+  top: -2px;
+  right: 6px;
   z-index: 2;
   opacity: var(--prism-marker-opacity);
   font-size: var(--prism-marker-font-size);
