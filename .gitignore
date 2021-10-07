@@ -5,4 +5,8 @@ node_modules/
 test/
 *.log
 
-packages/**/**/{dist,es,lib,types}
+dist/
+packages/**/dist
+packages/**/es
+packages/**/lib
+packages/**/types
