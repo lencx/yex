@@ -53,9 +53,6 @@ async function buildMetaFiles() {
   }
 }
 
-const buildType = (type: string) =>
-  `cross-env NODE_OPTIONS="--max-old-space-size=6144" NODE_BUILD_TYPE=${type} rollup -c`;
-
 export async function build() {
   consola.info('Clean up');
   execSync('pnpm run clean', { stdio: 'inherit' });

@@ -17,9 +17,6 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
-  "dependencies": {
-    "@yex/vue": "workspace:*"
-  },
   "devDependencies": {
     "@iconify-json/ri": "^1.0.1",
     "@types/fs-extra": "^9.0.13",

@@ -119,26 +119,8 @@ export default configs;
 
 function esbuildMinifer(options: ESBuildOptions) {
   const { renderChunk } = esbuild(options);
-
   return {
     name: 'esbuild-minifer',
     renderChunk,
   };
-};
-
-function buildDST(pkg: PackageManifest, input: string, output: string): RollupOptions {
-  return {
-    input,
-    output: {
-      file: `packages/${pkg.name}/types/${output}.d.ts`,
-      format: 'es',
-    },
-    plugins: [
-      dts(),
-    ],
-    external: [
-      /\.scss$/,
-      ...(pkg.external || []),
-    ],
-  }
 }
