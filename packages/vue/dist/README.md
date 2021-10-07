@@ -1,3 +1,0 @@
-# @yex/vue
-
-> Components Library
