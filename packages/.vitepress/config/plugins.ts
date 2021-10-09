@@ -7,7 +7,7 @@ import { highlight } from './highlight';
 import type Token from 'markdown-it/lib/token';
 import type Renderer from 'markdown-it/lib/renderer';
 
-const docRoot = path.resolve(__dirname, '../../../packages');
+const docRoot = path.resolve(__dirname, '../..');
 
 const localMd = MarkdownIt();
 const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/;
@@ -52,23 +52,11 @@ export const mdPlugin = (md: MarkdownIt) => {
           });
 
           if (existingScriptIndex === -1) {
-            hoistedTags.push(`
-    <script setup>
-    const demos = import.meta.globEager('../../../packages/${
-      sourceFile
-    }/demo/.vue')
-    </script>`);
+            hoistedTags.push(loadCode(sourceFile));
           }
         }
         if (!source) throw new Error(`Incorrect source file: ${sourceFile}`);
-
-        const { html, js, css, cssPreProcessor, jsPreProcessor } =
-          generateCodePenSnippet(source);
-        return `<Demo :demos="demos" source="${encodeURIComponent(
-          highlight(source, 'vue')
-        )}" path="${sourceFile}" html="${html}" js="${js}" css="${css}" css-pre-processor="${cssPreProcessor}" js-pre-processor="${jsPreProcessor}" raw-source="${encodeURIComponent(
-          source
-        )}" description="${encodeURIComponent(localMd.render(description))}">`;
+        return renderVueDemo(source, sourceFile, description);
       } else {
         return '</Demo>';
       }
@@ -87,3 +75,29 @@ function generateCodePenSnippet(source: string) {
     jsPreProcessor: script?.lang || 'none',
   };
 }
+
+function loadCode(file: string) {
+  return `<script setup>
+  const demos = import.meta.globEager('../../${file}/demo/.vue')
+  </script>`;
+}
+
+function renderVueDemo(source: string, file: string, desc: string) {
+  const { html, js, css, cssPreProcessor, jsPreProcessor } = generateCodePenSnippet(source);
+  return `<Demo
+  :demos="demos"
+  source="${encodeURIComponent(highlight(source, 'vue'))}"
+  path="${file}"
+  html="${html}"
+  js="${js}"
+  css="${css}"
+  css-pre-processor="${cssPreProcessor}"
+  js-pre-processor="${jsPreProcessor}"
+  raw-source="${encodeURIComponent(source)}"
+  description="${encodeURIComponent(localMd.render(desc))}">
+`}
+
+// vdemo - vue demo
+// rdemo - react demo
+// sdemo - svelte demo
+// mdemo - miniprogram demo

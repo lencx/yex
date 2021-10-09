@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-container">..
+  <div class="demo-container">
     <div class="scroll-container"></div>
     <scroll-progress-bar root=".scroll-container" />
   </div>

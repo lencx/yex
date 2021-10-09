@@ -13,9 +13,9 @@
     "clean": "rimraf dist types packages/*/{dist,es,lib,types}",
     "update": "esno scripts/update.ts",
     "test": "jest",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:dev": "vitepress dev packages",
+    "docs:build": "vitepress build packages",
+    "docs:serve": "vitepress serve packages"
   },
   "devDependencies": {
     "@iconify-json/ri": "^1.0.1",
@@ -55,6 +55,6 @@
     "unplugin-vue-components": "^0.15.6",
     "vite": "^2.6.2",
     "vite-plugin-windicss": "^1.4.9",
-    "vitepress": "^0.19.2"
+    "vitepress": "^0.20.0"
   }
 }

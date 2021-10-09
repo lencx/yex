@@ -41,7 +41,7 @@ importers:
       unplugin-vue-components: ^0.15.6
       vite: ^2.6.2
       vite-plugin-windicss: ^1.4.9
-      vitepress: ^0.19.2
+      vitepress: ^0.20.0
     devDependencies:
       '@iconify-json/ri': 1.0.1
       '@types/fs-extra': 9.0.13
@@ -80,7 +80,7 @@ importers:
       unplugin-vue-components: 0.15.6_rollup@2.58.0+vite@2.6.2
       vite: 2.6.2_sass@1.42.1
       vite-plugin-windicss: 1.4.9_typescript@4.4.3+vite@2.6.2
-      vitepress: 0.19.2_sass@1.42.1
+      vitepress: 0.20.0_sass@1.42.1
 
   packages/shared:
     specifiers: {}
@@ -966,13 +966,13 @@ packages:
       '@types/yargs-parser': 20.2.1
     dev: true
 
-  /@vitejs/plugin-vue/1.9.2_vite@2.6.2:
+  /@vitejs/plugin-vue/1.9.2_vite@2.6.5:
     resolution: {integrity: sha512-QnUQJvGmY+YT9xTidLcjr6NAjKWNdSuul1M+BZ6uwTQaO5vpAY9USBncXESATk742dYMZGJenegJgeJhG/HMNQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       vite: ^2.5.10
     dependencies:
-      vite: 2.6.2_sass@1.42.1
+      vite: 2.6.5_sass@1.42.1
     dev: true
 
   /@vue/compiler-core/3.2.19:
@@ -3998,16 +3998,41 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/0.19.2_sass@1.42.1:
-    resolution: {integrity: sha512-F8KY5gTfIa9B61by6rlGQE2K/fw2FIflld6UuB3SHTp0E5cblYGUkGfVwMiai+ets2ztDqWIiJJqpDBm/Cam1Q==}
+  /vite/2.6.5_sass@1.42.1:
+    resolution: {integrity: sha512-vavXMChDUb4Oh4YunrK9BrH5Ox74cu0eOp0VuyI/iqFz1FqbWD72So2c9I87lLL2n0+6tFPV5ijow60KrtxuZg==}
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.13.3
+      postcss: 8.3.9
+      resolve: 1.20.0
+      rollup: 2.58.0
+      sass: 1.42.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vitepress/0.20.0_sass@1.42.1:
+    resolution: {integrity: sha512-+PZy1BAWha46hcaWqhB1Vet+2dwhebTnk900ZzrAgLiw4Dx0dQpnMRnDlrp5HR8fgmLNB1Ij9PJO4gh4tvb6gQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
       '@docsearch/css': 1.0.0-alpha.28
       '@docsearch/js': 1.0.0-alpha.28
-      '@vitejs/plugin-vue': 1.9.2_vite@2.6.2
+      '@vitejs/plugin-vue': 1.9.2_vite@2.6.5
       prismjs: 1.25.0
-      vite: 2.6.2_sass@1.42.1
+      vite: 2.6.5_sass@1.42.1
       vue: 3.2.19
     transitivePeerDependencies:
       - less
